@@ -1,14 +1,38 @@
-Python 3.13.3 (tags/v3.13.3:6280bb5, Apr  8 2025, 14:47:33) [MSC v.1943 64 bit (AMD64)] on win32
-Enter "help" below or click "Help" above for more information.
->>> def calculate_tax(price, tax_rate):
-...     tax_amount = price * tax_rate
-...     rounded_tax_amount = round(tax_amount, 2)
-...     return rounded_tax_amount
-... 
->>> price = float(input("Enter the price: "))
-Enter the price: 5.00
->>> tax_rate = float(input("Enter the tax rate (e.g., 0.07 for 7%): "))
-Enter the tax rate (e.g., 0.07 for 7%): 0.08
->>> tax = calculate_tax(price, tax_rate)
->>> print("Tax Amount:", tax)
-Tax Amount: 0.4
+"""
+Program: taxform.py
+Author: Ken Lambert
+
+Compute a person's income tax.
+
+1. Significant constants
+       tax rate
+       standard deduction
+       deduction per dependent
+2. The inputs are
+       gross income 
+       number of dependents 
+3. Computations:
+       taxable income = gross income - the standard deduction - 
+                        a deduction for each dependent 
+       income tax = is a fixed percentage of the taxable income 
+4. The outputs are
+       the income tax
+"""
+
+# Initialize the constants
+TAX_RATE = 0.20
+STANDARD_DEDUCTION = 10000.0
+DEPENDENT_DEDUCTION = 3000.0
+               
+# Request the inputs
+grossIncome = float(input("Enter the gross income: "))
+numDependents = int(input("Enter the number of dependents: "))   
+
+# Compute the income tax
+taxableIncome = grossIncome - STANDARD_DEDUCTION - \
+                DEPENDENT_DEDUCTION * numDependents
+incomeTax = taxableIncome * TAX_RATE
+roundedTax = round(incomeTax, 2)
+         
+# Display the income tax
+print("The income tax is $" + str(incomeTax))
