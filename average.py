@@ -23,6 +23,9 @@ def calculate_average_from_file():
             average = total / len(valid_numbers)
 
             print(f"The average of the numbers in '{file_name}' is: {average:.2f}")
+            print(f"The Sum: {total:.2f}")
+            print(f"The Minimum: {min(valid_numbers):.2f}")
+            print(f"The Maximum: {max(valid_numbers):.2f}")
 
     except FileNotFoundError:
         print("Error: File not found. Did you spell it right, and is it in the same directory as this program?")
